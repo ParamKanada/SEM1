@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <math.h>
+
+int FindDigit(int num);
+
+int main()
+{
+    //ask number of test cases
+    int t;
+    printf("\nEnter number of test cases:\n");
+    scanf("%d",&t);
+
+    //an array to store user inputs
+    int number[t];
+    printf("Enter numbers:\n");
+    for(int i=0;i<t;i++)
+    {
+        scanf("%d",&number[i]);
+    }
+
+    //display user inputs
+    printf("User's inputs");
+    for(int i=0;i<t;i++)
+    {
+        printf("\n%d",number[i]);
+    }
+
+    //output
+    printf("\nThe result is:");
+    for(int i=0;i<t;i++)
+    {
+        printf("\n%d",FindDigit(number[i]));
+    }
+
+
+
+    return 0;
+}
+
+//will return number of digits in given number that exactly divides that number
+int FindDigit(int num)
+{
+    int temp = num; //temporary variable
+    int digit;      //to extract digits of number
+    int count=0;    //to store our answer
+
+    //if the digit is 0, we needd to ignore it or it will cause run time error
+    while(temp!=0)
+    {
+        digit=temp%10;
+        temp/=10;
+        //if(num%digit==0 && digit!=0) this is wrong 
+        //check digit!=0 before num%digit==0   order of checking matters
+        if(digit!=0 && num%digit==0)
+        {
+            count+=1;
+        }
+    }
+
+    return count;
+}
