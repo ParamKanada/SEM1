@@ -1,0 +1,67 @@
+#include <stdio.h>
+void IsFibo(int num);
+int main()
+{
+
+    //getting nummber of test cases from user
+    int t;
+    printf("Enter number of test cases:\n");
+    scanf("%d",&t);
+
+    //an array to store user's input
+    int number[t];
+    printf("Enter numbers:\n");
+    for(int i=0;i<t;i++)
+    {
+        scanf("%d",&number[i]);
+    }
+
+    //print user's input
+    printf("User input numbers:\n");
+    for(int i=0;i<t;i++)
+    {
+        printf("%d\n",number[i]);
+    }
+
+    //Worst logic:
+        //if we can store a fibonacci series in an array with last element less than or equal to max_input
+        //we can then search for user's inputs in that array
+    
+    //Best logic:
+        //or we can make a function to check fibo 
+    
+    
+    for(int i=0;i<t;i++)
+    {
+        IsFibo(number[i]);
+    }
+    return 0;
+}
+
+
+void IsFibo(int num)
+{
+    int x=0,y=1,z;
+    if(num==0)
+    {
+        printf("\nIsFibo");
+    }
+    else
+    {
+        do
+        {
+            z=x+y;
+            x=y;
+            y=z;
+            if(num==z)
+            {
+                printf("\nIsFibo");
+                break;
+            }
+        }
+        while(z<=num);
+        
+        if(z>num)
+        printf("\nIsNotFibo");
+    }
+}
