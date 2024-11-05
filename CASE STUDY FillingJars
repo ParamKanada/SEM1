@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    //N jars
+    //M operations
+    int N,M;
+    printf("Enter N and M:\n");
+    scanf("%d %d",&N,&M);
+
+    int jars[100]={0};
+    
+    //taking input from user
+    int a,b,candies;
+    printf("\nEnter a,b,number of candies\n");
+    for(int i=0;i<M;i++)
+    {
+        scanf("%d%d%d",&a,&b,&candies);
+        for(int j=a-1;j<=b-1;j++)   //a and b are indices of jars. but their array indice will be a-1,b-1 since array index begins with 0
+        {
+            jars[j]+=candies;
+        }
+    }
+
+    int total=0;
+    for(int i=0;i<N;i++)
+    {
+        total+=jars[i];
+    }
+
+    printf("\n%d",total);
+    float average = (float)total/N;
+    printf("\nAverage number of candies is:%d",(int)average);
+
+}
