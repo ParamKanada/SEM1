@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+
+int is_gemstone_element();
+int main()
+{
+    int count=0;    //variable to count number of gem elements
+    
+    char collection[100][100];  //an array which will contain strings
+
+    int N;
+    printf("Enter the number of rocks\n");
+    scanf("%d",&N);
+
+    getchar();
+
+    //collecting the rocks with their elements
+    printf("Enter the elements of rock\n");
+    for(int i=0;i<N;i++)
+    {
+        gets(collection[i]);
+    }
+
+    for(int i=0;i<N;i++)
+    {
+        for(int j =97;j<=122;j++)
+        {
+            int count_alpha=0;//to count number of times this alphabet occurs
+
+            for(int k=0;k<sizeof(collection[i])/sizeof(collection[i][0]);k++)  //no. of elemnts in array
+            {
+                if ((char)j == collection[i][k])
+                {
+                    count_alpha+=1;
+                }
+            }
+            if(count_alpha>=2)
+            {
+                count+=1;
+            }
+        }
+    }
+
+    printf("Number of gemstone elements are:%d", count);
+
+
+    return 0;
+}
