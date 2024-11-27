@@ -24,20 +24,16 @@ int main()
         printf("\t%d",rotate_arr[i]);
     }
 
-    high =arr[5];
-    low= arr[0];
-
-    while(high!=low)
+//pivot logic
+    int pivot;
+    for (int i=0;i<6;i++)
     {
-        if(high<low)
+        if (rotate_arr[i+1]>rotate_arr[i])
         {
-            printf("\nNot rotated");
+            pivot=rotate_arr[i];
+            break;
         }
-    else if(high == low)
-    {
-        
-    }
     }
 
-
+    printf("\nThe pivot element is: %d",pivot);
 }
